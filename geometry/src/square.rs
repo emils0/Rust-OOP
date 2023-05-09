@@ -11,7 +11,7 @@ impl Square {
 }
 
 impl Shape for Square {
-    fn name() -> &'static str {
+    fn name(&self) -> &'static str {
         "square"
     }
 

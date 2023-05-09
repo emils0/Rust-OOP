@@ -19,15 +19,15 @@ impl Rectangle {
 }
 
 impl Shape for Rectangle {
-    fn name() -> &'static str {
+    fn name(&self) -> &'static str {
         "rectangle"
     }
 
     fn perimeter(&self) -> f64 {
-        todo!()
+        self.side_a + self.side_b + self.side_c + self.side_d
     }
 
     fn area(&self) -> f64 {
-        todo!()
+        self.side_a * self.side_b
     }
 }

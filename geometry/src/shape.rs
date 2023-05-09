@@ -1,5 +1,5 @@
 pub trait Shape {
-    fn name() -> &'static str;
+    fn name(&self) -> &'static str;
 
     fn perimeter(&self) -> f64;
 
