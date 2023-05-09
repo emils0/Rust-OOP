@@ -1,4 +1,5 @@
 use crate::shape::Shape;
+use std::f64::consts::PI;
 
 pub struct Parallelogram {
     side_a: f64,
@@ -8,6 +9,7 @@ pub struct Parallelogram {
 
 impl Parallelogram {
     pub fn new(side_a: f64, side_b: f64, angle: f64) -> Self {
+        let angle = (angle * (PI / 180.)).sin();
         Self {
             side_a,
             side_b,
