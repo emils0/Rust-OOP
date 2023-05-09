@@ -31,8 +31,9 @@ impl Shape for Trapezoid {
         let s = (self.side_a + self.side_b - self.base_top + self.base_bottom) / 2.;
 
         let height = 2. / (self.base_bottom - self.base_top)
-            * (s * (s - self.side_a + self.base_bottom) * (s - self.side_b) * (s - self.base_top))
+            * (s * (s - self.base_bottom + self.base_top) * (s - self.side_b) * (s - self.side_a))
                 .sqrt();
-        ((self.base_top + self.base_bottom) * height) / 2.
+
+        ((self.base_bottom + self.base_top) / 2.) * height
     }
 }
