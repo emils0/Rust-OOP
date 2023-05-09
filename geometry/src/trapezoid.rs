@@ -29,7 +29,8 @@ impl Shape for Trapezoid {
 
     fn area(&self) -> f64 {
         let s = (self.side_a + self.side_b - self.base_top + self.base_bottom) / 2.;
-        let height = 2. / (self.base_top - self.base_bottom)
+
+        let height = 2. / (self.base_bottom - self.base_top)
             * (s * (s - self.side_a + self.base_bottom) * (s - self.side_b) * (s - self.base_top))
                 .sqrt();
         ((self.base_top + self.base_bottom) * height) / 2.

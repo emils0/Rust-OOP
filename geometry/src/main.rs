@@ -17,7 +17,7 @@ fn main() {
         Box::new(Rectangle::new(4., 2., 4., 2.)),
         Box::new(Square::new(3.)),
         Box::new(Parallelogram::new(5., 3., 3.)),
-        Box::new(Trapezoid::new(3., 5., 2., 4.)),
+        Box::new(Trapezoid::new(8., 10., 9., 9.)),
         Box::new(RightTriangle::new(3., 4.)),
     ];
 
