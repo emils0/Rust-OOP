@@ -27,6 +27,6 @@ impl Shape for RightTriangle {
     }
 
     fn area(&self) -> f64 {
-        (1. / 2.) * self.leg_a * self.leg_b
+        0.5 * self.leg_a * self.leg_b
     }
 }

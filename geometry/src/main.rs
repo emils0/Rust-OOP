@@ -22,7 +22,11 @@ fn main() {
     ];
 
     for shape in &shapes {
-        let (name, perimeter, area) = (shape.name(), shape.perimeter(), shape.area());
-        println!("Shape: {name}\nPerimeter: {perimeter}\nArea: {area}\n",);
+        println!(
+            "Shape: {}\nPerimeter: {}\nArea: {}\n",
+            shape.name(),
+            shape.perimeter(),
+            shape.area()
+        );
     }
 }
