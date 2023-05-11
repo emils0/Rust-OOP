@@ -5,8 +5,10 @@ pub struct Filter {
 }
 
 impl Filter {
-    pub fn new(item: Option<Box<dyn Brewable>>) -> Filter {
-        Filter { item }
+    pub fn new<T: Brewable + 'static>(item: Option<T>) -> Filter {
+        Filter {
+            item: item.map(|i| Box::new(i) as Box<dyn Brewable>),
+        }
     }
 
     pub fn is_empty(&self) -> bool {
@@ -16,23 +18,18 @@ impl Filter {
         }
     }
 
-    pub fn add(&mut self, item: Box<dyn Brewable>) -> Result<(), &'static str> {
-        match self.item {
+    pub fn add<T: Brewable + 'static>(&mut self, item: T) -> Result<(), &'static str> {
+        match self.item.replace(Box::new(item)) {
             Some(_) => Err("Filter is already full."),
-            None => {
-                self.item = Some(item);
-                Ok(())
-            }
+            None => Ok(()),
         }
     }
 
-    pub fn use_filter(&mut self) -> Result<&'static str, &'static str> {
-        match self.item {
-            Some(n) => {
-                self.item = None;
-                Ok(n.liquid_type())
-            }
-            None => Err("Cannot use filter, as it is empty."),
+    // Returns the liquid type and amount of liquid that results from making this brew.
+    pub fn consume_brewable(&mut self) -> (String, u32) {
+        match self.item.take() {
+            Some(n) => (n.liquid_type().to_string(), n.liquid_amount()),
+            None => ("water".to_string(), 1200),
         }
     }
 }

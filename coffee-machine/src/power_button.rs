@@ -1,15 +1,15 @@
-pub struct PowerButton(bool);
+pub struct PowerSwitch(bool);
 
-impl PowerButton {
+impl PowerSwitch {
     pub fn new() -> Self {
         Self { 0: false }
     }
 
-    pub fn switch_button(&mut self) {
+    pub fn flip_switch(&mut self) {
         self.0 = !self.0
     }
 
-    pub fn check_power(&self) -> bool {
+    pub fn is_on(&self) -> bool {
         self.0
     }
 }
