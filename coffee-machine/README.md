@@ -22,15 +22,12 @@ classDiagram
     }
 
     class Coffee{
-        --|> Brewable
     }
 
     class TeaLeaves{
-        --|> Brewable
     }
 
     class EspressoPowder{
-        --|> Brewable
     }
 
     class Filter{
@@ -66,4 +63,7 @@ classDiagram
     LiquidTank --> Coffee
     LiquidTank --> TeaLeaves
     LiquidTank --> EspressoPowder
+    Coffee --|> Brewable
+    TeaLeaves --|> Brewable
+    EspressoPowder --|> Brewable
 ```
