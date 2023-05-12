@@ -21,7 +21,7 @@ fn main() {
         Box::new(RightTriangle::new(3., 4.)),
     ];
 
-    for shape in &shapes {
+    for shape in shapes {
         println!(
             "Shape: {}\nPerimeter: {}\nArea: {}\n",
             shape.name(),
