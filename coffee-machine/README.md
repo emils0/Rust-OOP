@@ -21,14 +21,9 @@ classDiagram
         +liquid_amount() u32
     }
 
-    class Coffee{
-    }
-
-    class TeaLeaves{
-    }
-
-    class EspressoPowder{
-    }
+    class Coffee{}
+    class TeaLeaves{}
+    class EspressoPowder{}
 
     class Filter{
         +new(Option<T>) Filter
@@ -58,11 +53,8 @@ classDiagram
     main --> CoffeeMachine
     CoffeeMachine --> PowerSwitch
     CoffeeMachine --> Filter
-    CoffeeMachine --> LiquidTank: water_tank
-    Filter --> Brewable: item
-    LiquidTank --> Coffee
-    LiquidTank --> TeaLeaves
-    LiquidTank --> EspressoPowder
+    CoffeeMachine --> LiquidTank
+    Filter --> Brewable
     Coffee --|> Brewable
     TeaLeaves --|> Brewable
     EspressoPowder --|> Brewable
