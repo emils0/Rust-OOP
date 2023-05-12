@@ -17,9 +17,15 @@ classDiagram
         +liquid_amount() u32
     }
 
-    class Coffee{}
-    class TeaLeaves{}
-    class EspressoPowder{}
+    class Coffee{
+
+    }
+    class TeaLeaves{
+
+    }
+    class EspressoPowder{
+
+    }
 
     class Filter{
         +new(Option<T>) Filter
