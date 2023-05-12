@@ -2,10 +2,6 @@
 
 ```mermaid
 classDiagram
-    class main{
-        +main()
-    }
-
     class CoffeeMachine{
         +new(Filter) CoffeeMachine
         +add_water(u32) Result<(), &'static str>
@@ -50,7 +46,6 @@ classDiagram
         -current_volume: u32
     }
 
-    main --> CoffeeMachine
     CoffeeMachine --> PowerSwitch
     CoffeeMachine --> Filter
     CoffeeMachine --> LiquidTank
@@ -58,4 +53,5 @@ classDiagram
     Coffee --|> Brewable
     TeaLeaves --|> Brewable
     EspressoPowder --|> Brewable
+
 ```
