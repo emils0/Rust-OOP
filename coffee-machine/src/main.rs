@@ -1,6 +1,7 @@
 mod brewable;
 mod coffee;
 mod coffee_machine;
+mod espresso_powder;
 mod filter;
 mod liquid_tank;
 mod power_button;
@@ -8,6 +9,7 @@ mod tea_leaves;
 
 use coffee::Coffee;
 use coffee_machine::CoffeeMachine;
+use espresso_powder::EspressoPowder;
 use tea_leaves::TeaLeaves;
 
 use crate::{filter::Filter, liquid_tank::LiquidTank};
@@ -48,5 +50,23 @@ fn main() {
         teapot
             .current_liquid_type()
             .unwrap_or(&"nothing".to_string())
+    );
+
+    // part 3 (espresso)
+    coffee_machine.filter.add(EspressoPowder).unwrap();
+    println!("Put espresso powder into the filter.");
+
+    coffee_machine.add_water(300).unwrap();
+    println!("Added 300 mL water to the coffee machine.");
+
+    let mut cup = LiquidTank::new(250);
+
+    coffee_machine.brew(&mut cup).unwrap();
+    println!("Espresso brewed and poured into the pot.");
+
+    println!(
+        "The cup now contains {} mL of {}.",
+        cup.current_volume(),
+        cup.current_liquid_type().unwrap_or(&"nothing".to_string())
     );
 }
