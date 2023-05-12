@@ -56,8 +56,8 @@ classDiagram
     CoffeeMachine --> Filter
     CoffeeMachine --> LiquidTank
     Filter --> Brewable
-    Coffee --|> Brewable
-    TeaLeaves --|> Brewable
-    EspressoPowder --|> Brewable
+    Coffee ..> Brewable
+    TeaLeaves ..> Brewable
+    EspressoPowder ..> Brewable
 
 ```
